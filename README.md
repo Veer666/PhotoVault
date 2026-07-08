@@ -31,15 +31,15 @@ A secure and modern **iOS Photo Vault** application built with **SwiftUI** and *
 
 | Login                      | Sign Up                     |
 | -------------------------- | --------------------------- |
-| ![](screenshots/login.png) | ![](screenshots/signup.png) |
+| ![](login.png) | ![](signup.png) |
 
 | Home                      | Upload                      |
 | ------------------------- | --------------------------- |
-| ![](screenshots/home.png) | ![](screenshots/upload.png) |
+| ![](home.png            ) | ![](upload.png) |
 
 | Profile                      | Reset Password             |
 | ---------------------------- | -------------------------- |
-| ![](screenshots/profile.png) | ![](screenshots/reset.png) |
+| ![](profile.png) | ![](reset.png) |
 
 ---
 
