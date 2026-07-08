@@ -27,22 +27,6 @@ A secure and modern **iOS Photo Vault** application built with **SwiftUI** and *
 
 ---
 
-## 📱 Screenshots
-
-| Login                      | Sign Up                     |
-| -------------------------- | --------------------------- |
-| ![](login.png) | ![](signup.png) |
-
-| Home                      | Upload                      |
-| ------------------------- | --------------------------- |
-| ![](home.png            ) | ![](upload.png) |
-
-| Profile                      | Reset Password             |
-| ---------------------------- | -------------------------- |
-| ![](profile.png) | ![](reset.png) |
-
----
-
 ## 🛠️ Tech Stack
 
 * Swift
