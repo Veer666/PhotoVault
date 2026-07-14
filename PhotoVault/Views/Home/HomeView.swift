@@ -58,25 +58,29 @@ public struct HomeView: View {
                     }
                     .padding(.top, 8)
                     
-                    if viewModel.filteredPhotos.isEmpty {
-                        Spacer()
-                        if viewModel.searchText.isEmpty {
-                            EmptyStateView(
-                                iconName: "photo.on.rectangle.angled",
-                                title: "Your Vault is Empty",
-                                description: "Tap the floating upload button below to secure your first photo or video."
-                            )
+                    ScrollView {
+                        if viewModel.filteredPhotos.isEmpty {
+                            VStack {
+                                Spacer()
+                                    .frame(height: 120)
+                                if viewModel.searchText.isEmpty {
+                                    EmptyStateView(
+                                        iconName: "photo.on.rectangle.angled",
+                                        title: "Your Vault is Empty",
+                                        description: "Tap the floating upload button below to secure your first photo or video."
+                                    )
+                                } else {
+                                    EmptyStateView(
+                                        iconName: "magnifyingglass",
+                                        title: "No Results Found",
+                                        description: "No media items matched '\(viewModel.searchText)'."
+                                    )
+                                }
+                                Spacer()
+                            }
+                            .frame(maxWidth: .infinity, minHeight: 400)
                         } else {
-                            EmptyStateView(
-                                iconName: "magnifyingglass",
-                                title: "No Results Found",
-                                description: "No media items matched '\(viewModel.searchText)'."
-                            )
-                        }
-                        Spacer()
-                    } else {
-                        // Media Scrollable Grid
-                        ScrollView {
+                            // Media Scrollable Grid
                             LazyVGrid(columns: columns, spacing: 16) {
                                 ForEach(viewModel.filteredPhotos) { photo in
                                     PhotoCard(photo: photo) {
@@ -92,6 +96,9 @@ public struct HomeView: View {
                             .padding(.horizontal)
                             .padding(.bottom, 100) // Avoid overlap with the floating button
                         }
+                    }
+                    .refreshable {
+                        await viewModel.refresh()
                     }
                 }
                 
@@ -209,6 +216,13 @@ public struct HomeView: View {
                             await viewModel.softDelete(photo)
                             photoToDelete = nil
                         }
+                    }
+                }
+            }
+            .onChange(of: uploadViewModel.showSuccess) { success in
+                if success {
+                    Task {
+                        await viewModel.refresh()
                     }
                 }
             }

@@ -91,6 +91,29 @@ public final class HomeViewModel: ObservableObject {
         }
     }
     
+    /// Re-fetches the photos and albums from Firestore to refresh the views
+    public func refresh() async {
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        
+        do {
+            // Re-fetch active photos (not soft-deleted)
+            let fetchedPhotos = try await FirestoreManager.shared.fetchPhotos(forUserID: userID)
+            let sortedPhotos = fetchedPhotos.sorted { $0.createdAt > $1.createdAt }
+            
+            // Re-fetch albums
+            let fetchedAlbums = try await FirestoreManager.shared.fetchAlbums(forUserID: userID)
+            let sortedAlbums = fetchedAlbums.sorted { $0.createdAt > $1.createdAt }
+            
+            // Update UI
+            self.photos = sortedPhotos
+            self.albums = sortedAlbums
+            
+            print("Successfully refreshed data: \(self.photos.count) photos, \(self.albums.count) albums")
+        } catch {
+            print("Failed to refresh: \(error.localizedDescription)")
+        }
+    }
+    
     /// Maps album IDs to album names for search filtering
     private var albumNamesDict: [String: String] {
         Dictionary(uniqueKeysWithValues: albums.map { ($0.id, $0.name) })
