@@ -1,58 +1,94 @@
 # 📸 PhotoVault
 
-A secure and modern **iOS Photo Vault** application built with **SwiftUI** and **Firebase**. PhotoVault allows users to securely store, organize, and manage their private photos with authentication, cloud storage, and an intuitive user interface.
+A secure cloud-based **iOS Photo Vault** application built with **SwiftUI**, **Firebase Authentication**, **Cloud Firestore**, and **ImageKit**. PhotoVault enables users to securely upload, organize, search, favorite, restore, and manage their private photos through a clean, modern, and intuitive user interface.
+
+![Swift](https://img.shields.io/badge/Swift-5.0-orange)
+![SwiftUI](https://img.shields.io/badge/SwiftUI-iOS-blue)
+![Firebase](https://img.shields.io/badge/Firebase-Authentication-yellow)
+![ImageKit](https://img.shields.io/badge/ImageKit-Cloud%20Storage-success)
+![Architecture](https://img.shields.io/badge/Architecture-MVVM-red)
+![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey)
 
 ---
 
 ## ✨ Features
 
-* 🔐 Secure User Authentication
+### 🔐 Authentication
+- Secure User Registration
+- User Login
+- Password Reset
+- Logout
 
-  * Sign Up
-  * Login
-  * Logout
-  * Password Reset
+### ☁️ Cloud Storage
+- Secure Image Upload using ImageKit
+- Cloud Firestore Database Integration
 
-* 📤 Upload Photos Securely
+### 📸 Photo Management
+- Upload Photos
+- View Personal Gallery
+- Search Photos
+- Mark Photos as Favorites
+- Swipe to Delete
+- Recently Deleted Folder
+- Restore Deleted Photos
 
-* 🖼️ Personal Photo Gallery
-
-* 👤 User Profile
-
-* ☁️ Cloud Storage Integration
-
-* 📱 Clean and Modern SwiftUI Interface
-
-* ⚡ Fast & Responsive User Experience
+### 📱 User Experience
+- Pull to Refresh
+- Modern SwiftUI Interface
+- Responsive UI
+- Profile Screen
+- Storage Statistics
 
 ---
 
 ## 🛠️ Tech Stack
 
-* Swift
-* SwiftUI
-* Firebase Authentication
-* Firebase Firestore
-* Firebase Storage
-* MVVM Architecture
-* Xcode
+- Swift
+- SwiftUI
+- Firebase Authentication
+- Cloud Firestore
+- ImageKit
+- MVVM Architecture
+- Async/Await
+- Xcode
 
 ---
 
 ## 🏗️ Architecture
 
-This project follows the **MVVM (Model-View-ViewModel)** architecture to keep the code modular, maintainable, and scalable.
+The project follows the **MVVM (Model-View-ViewModel)** architecture to ensure clean code, modularity, scalability, and maintainability.
 
 ```
 PhotoVault
 │
 ├── Models
-├── Views
-├── ViewModels
 ├── Managers
 ├── Utilities
+├── ViewModels
+├── Views
+├── Assets.xcassets
 └── Resources
 ```
+
+---
+
+# 📱 Screenshots
+
+| Login | Empty Vault |
+|:------:|:-----------:|
+| <img src="screenshots/login.png" width="250"> | <img src="screenshots/vault.png" width="250"> |
+
+| Upload | Home |
+|:------:|:----:|
+| <img src="screenshots/upload.png" width="250"> | <img src="screenshots/home.png" width="250"> |
+
+| Favorites | Delete |
+|:---------:|:------:|
+| <img src="screenshots/favorate.png" width="250"> | <img src="screenshots/delete.png" width="250"> |
+
+| Recently Deleted | Profile |
+|:----------------:|:-------:|
+| <img src="screenshots/delete_folder.png" width="250"> | <img src="screenshots/profile.png" width="250"> |
 
 ---
 
@@ -73,11 +109,13 @@ open PhotoVault.xcodeproj
 
 ### Configure Firebase
 
-1. Create a Firebase project.
-2. Enable **Authentication**, **Firestore**, and **Storage**.
-3. Download the `GoogleService-Info.plist` file.
-4. Add it to the Xcode project.
-5. Run the application.
+1. Create a Firebase Project.
+2. Enable **Authentication**.
+3. Enable **Cloud Firestore**.
+4. Download `GoogleService-Info.plist`.
+5. Add the file to the Xcode project.
+6. Configure ImageKit credentials.
+7. Build and Run.
 
 ---
 
@@ -87,42 +125,44 @@ open PhotoVault.xcodeproj
 PhotoVault
 ├── Models
 ├── Managers
+├── Utilities
 ├── ViewModels
 ├── Views
 ├── Assets.xcassets
-├── Utilities
-└── screenshots
+├── screenshots
+└── Resources
 ```
 
 ---
 
-## 🎯 Future Improvements
+## 🚀 Future Improvements
 
-* Face ID / Touch ID Authentication
-* Image Search
-* Album Management
-* Image Sharing
-* Dark Mode Enhancements
-* Offline Caching
-* Image Compression
-* Secure Encryption
+- 🔐 Face ID / Touch ID Authentication
+- 📁 Album Management
+- 🎥 Video Support
+- 🔒 End-to-End Encryption
+- 🤝 Shared Albums
+- 🌙 Dark Mode
+- 📶 Offline Caching
+- ☁️ iCloud Backup Support
 
 ---
 
 ## 🤝 Contributing
 
-Contributions, suggestions, and improvements are welcome.
+Contributions are welcome!
 
-1. Fork the repository.
-2. Create a feature branch.
-3. Commit your changes.
-4. Open a Pull Request.
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push your branch
+5. Open a Pull Request
 
 ---
 
 ## 📄 License
 
-This project is available under the MIT License.
+This project is licensed under the **MIT License**.
 
 ---
 
@@ -130,8 +170,17 @@ This project is available under the MIT License.
 
 **Vir Daksh Kumar**
 
-B.Tech CSE Student
+🎓 B.Tech Computer Science & Engineering  
+National Institute of Technology Hamirpur
 
-Passionate about **iOS Development**, **SwiftUI**, and building clean, user-friendly mobile applications.
+💻 iOS Developer  
+📱 Swift & SwiftUI Enthusiast  
+🚀 Passionate about building clean, scalable, and user-friendly mobile applications.
 
-⭐ If you like this project, consider giving it a **Star** on GitHub!
+### Connect with me
+
+- GitHub: https://github.com/Veer666
+
+---
+
+⭐ **If you found this project helpful, please consider giving it a Star!**
